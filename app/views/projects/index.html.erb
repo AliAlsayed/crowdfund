@@ -1,0 +1,14 @@
+<h1><%= pluralize(@projects.length, "Project") %></h1>
+<div>
+	<ul>
+		<% @projects.each do |project| %>
+			<li><h2><strong><%= link_to project.name, project %></strong></h2></li>
+			<%= image_for project %>
+			<p><%= truncate(project.description, length: 20, separator: ' ') %></p>
+			<h4>target pledge: <%= number_to_currency(project.target_pledge_amount) %></h4>
+			<h4>Pledging ends on: <%= format_pledging_time(project) %></h4>
+		<% end %>
+  </ul>
+</div>
+
+

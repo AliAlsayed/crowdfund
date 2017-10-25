@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  pledge_amount: 1
+  comment: MyText
+  project: one
+
+two:
+  name: MyString
+  email: MyString
+  pledge_amount: 1
+  comment: MyText
+  project: two
