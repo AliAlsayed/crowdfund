@@ -8,7 +8,6 @@ class Project < ApplicationRecord
 	}
 
 	has_many :pledges, dependent: :destroy
-end
 
 	def pledging_expired?
 		Time.now > pledging_ends_on

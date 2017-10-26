@@ -1,0 +1,6 @@
+<h1>pledges for <%= link_to @project.name, @project %></h1>
+<ul>
+	<% @pledges.each do |pledge| %>
+		<li><h2><%= pledge.name %> (<%= number_to_currency(pledge.pledge_amount) %>)</h2></li>
+	<% end %>
+</ul>
