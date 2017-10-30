@@ -1,0 +1,23 @@
+<%= form_for [@project, @pledge] do |f| %>
+	<%= render 'shared/errors', object: @pledge %>
+	<p>
+		<%= f.label :name %></br>
+		<%= f.text_field :name, autofocus: true %></br>
+	</p>
+	<p>
+		<%= f.label :email %></br>
+		<%= f.text_field :email %></br>
+	</p>
+	<p>
+		<%= f.label :amount %>
+		<%= f.select :pledge_amount, Pledge::ALLOWED_AMOUNTS, prompt: "please select" %></br>
+	</p>
+	<p>
+		<%= f.label :any_comments %></br>
+		<%= f.text_field :comment %></br>
+	</p>
+	<p>
+		<%= f.submit %> |
+		<%= link_to 'cancel', project_pledges_path(@project) %>
+	</p>
+<% end %>
