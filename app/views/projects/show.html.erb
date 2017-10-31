@@ -9,4 +9,4 @@
 <%= link_to "Edit", edit_project_path %> | 
 <%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: 'Are you sure?'} %> | 
 <%= link_to "who pledged?", project_pledges_path(@project) %> | 
-<%= link_to "Show us the money!", new_project_pledge_path(@project) %>
+<%= link_to "pay us", new_project_pledge_path(@project) %>
