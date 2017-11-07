@@ -12,7 +12,44 @@ class Project < ApplicationRecord
 	def pledging_expired?
 		Time.now > pledging_ends_on
 	end
+
 	def self.accepting
 		where("pledging_ends_on > ?", Time.now)
 	end
+
+	def total_pledged
+		total = 0
+		pledges.each do |p|
+			total += p['pledge_amount']
+		end
+		total
+	end
+
+	def pledge_outstanding
+		target_pledge_amount - total_pledged
+	end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
