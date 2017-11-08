@@ -14,4 +14,12 @@ module ProjectsHelper
 			image_tag(project.image_file_name)
 		end
 	end
+
+	def format_pledging_link(project)
+		if project.fully_funded?
+			content_tag(:strong, "Funded!")
+		else
+			link_to "pay us", new_project_pledge_path(project) 
+		end
+	end
 end

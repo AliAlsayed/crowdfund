@@ -3,13 +3,15 @@
 <p><%= @project.description %></p>
 <h4>Pledging ends on: <%= format_pledging_time(@project) %></h4>
 <h4>Team: <%= @project.team_members %></h4>
-<h4>target pledge: <%= number_to_currency(@project.target_pledge_amount) %></h4>
-<h4><%= number_to_currency(@project.total_pledged) %> pledged</h4>
-<h4><%= number_to_currency(@project.pledge_outstanding) %> outstanding</h4>
+<% if !@project.fully_funded? %>
+	<h4>target pledge: <%= number_to_currency(@project.target_pledge_amount) %></h4>
+	<h4><%= number_to_currency(@project.total_pledged) %> pledged</h4>
+	<h4><%= number_to_currency(@project.pledge_outstanding) %> outstanding</h4>
+<% end %>
 
 
 <%= link_to "Edit", edit_project_path %> | 
 <%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: 'Are you sure?'} %> | 
 <%= link_to "who pledged?", project_pledges_path(@project) %> | 
-<%= link_to "pay us", new_project_pledge_path(@project) %>
+<%= format_pledging_link(@project) %>
 

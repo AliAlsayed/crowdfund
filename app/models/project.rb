@@ -29,6 +29,10 @@ class Project < ApplicationRecord
 		target_pledge_amount - total_pledged
 	end
 
+	def fully_funded?
+		pledge_outstanding <= 0
+	end
+
 end
 
 
